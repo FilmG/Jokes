@@ -7,20 +7,20 @@ function App() {
   const [limit, setLimit] = useState<number>();
 
   const getJokes = async () => {
-        const response = await axios.get('https://api.api-ninjas.com/v1/dadjokes', {
-            params: {
-                limit: limit
-            },
-            headers: {
-                'X-Api-Key': 'HG4tX1CpNOujUDfwODRlCg==16v6kLGim2O29RU6'
-            }
+        await axios.get('https://api.api-ninjas.com/v1/dadjokes', {
+          params: {
+            limit: limit
+          },
+          headers: {
+            'X-Api-Key': 'HG4tX1CpNOujUDfwODRlCg==16v6kLGim2O29RU6'
+          }
         }).then((response) => {
-            setJokes(response.data)})
-            .catch((error) => {
-                console.error(error)
-            }).finally(() => {
-              setLimit(0);
-            });
+          setJokes(response.data)})
+          .catch((error) => {
+            console.error(error)
+          }).finally(() => {
+            setLimit(0);
+          });
 
 };
 
