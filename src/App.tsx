@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 
@@ -19,6 +18,8 @@ function App() {
             setJokes(response.data)})
             .catch((error) => {
                 console.error(error)
+            }).finally(() => {
+              setLimit(0);
             });
 
 };
