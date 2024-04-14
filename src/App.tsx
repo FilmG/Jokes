@@ -8,7 +8,6 @@ function App() {
   const [limit, setLimit] = useState<number>();
 
   const getJokes = async () => {
-    try {
         const response = await axios.get('https://api.api-ninjas.com/v1/dadjokes', {
             params: {
                 limit: limit
@@ -16,12 +15,12 @@ function App() {
             headers: {
                 'X-Api-Key': 'HG4tX1CpNOujUDfwODRlCg==16v6kLGim2O29RU6'
             }
-        });
-        setJokes(response.data);
-        console.log(response);
-    } catch (error) {
-        console.error(error);
-    }
+        }).then((response) => {
+            setJokes(response.data)})
+            .catch((error) => {
+                console.error(error)
+            });
+
 };
 
 
